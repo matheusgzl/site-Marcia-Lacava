@@ -43,14 +43,14 @@ body {
     }
 
     .logo-navbar {
-      height: 110px;
+      height: 100px;
       padding-right: 15px;
       padding-left: 10px;
     }
 
     .brand-text {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2.7rem;
+      font-size: 2.5rem;
       font-weight: 700;
       color: var(--white) !important;
     }
