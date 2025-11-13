@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marcia Lacava Advocacia - Soluções Jurídicas Especializadas</title>
     <script src="/_sdk/element_sdk.js"></script>
-    <script src="/_sdk/data_sdk.js"></script>
     <!-- Bootstrap 5.3.3 CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -22,6 +21,7 @@
       rel="stylesheet"
     />
    <link rel="stylesheet" href="estilos/style.css">
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
     <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
   </head>
   <body>
@@ -117,11 +117,8 @@
         </div>
         <div class="row align-items-center">
           <div class="col-lg-8 mb-4 mb-lg-0">
-            <p class="about-text fade-in-up" id="about-text">
-              O escritório Marcia Lacava Advocacia oferece assessoria jurídica
-              especializada há mais de uma década, com foco em soluções
-              personalizadas e excelência técnica.
-            </p>
+            <p class="about-text" id="about-text">O escritório Marcia Lacava Advocacia atua há mais de uma década oferecendo assessoria jurídica especializada, com foco em soluções personalizadas para cada cliente. Nossa prática é fundamentada na ética profissional, transparência e comprometimento com a excelência técnica, sempre respeitando os princípios e diretrizes estabelecidos pela Ordem dos Advogados do Brasil.</p>
+      <p class="about-text mt-3">Desenvolvemos estratégias jurídicas eficazes, priorizando a prevenção de litígios e a construção de soluções que atendam aos interesses legítimos de nossos clientes, com especial expertise em planejamento patrimonial e direito empresarial.</p>
           </div>
           <div class="col-lg-4">
             <div class="row g-3">
@@ -415,6 +412,7 @@
                         class="form-control"
                         id="client-phone"
                         placeholder="(11) 98765-4321"
+                        maxlength="15"
                         required
                       />
                     </div>
@@ -647,7 +645,6 @@
       let currentDate = new Date();
       let selectedDate = null;
       let selectedTime = null;
-      let bookings = [];
 
       // Available time slots
       const availableTimeSlots = [
@@ -666,27 +663,79 @@
         "17:00",
       ];
 
-      // Data SDK Handler
-      const dataHandler = {
-        onDataChanged(data) {
-          bookings = data;
-          // Update calendar and time slots if needed
-          if (selectedDate) {
-            renderTimeSlots(selectedDate);
-          }
-        },
-      };
+      // WhatsApp Integration
+      function sendWhatsAppMessage(phoneNumber, message) {
+        // Remove all non-numeric characters from phone number
+        const cleanPhone = phoneNumber.replace(/\D/g, "");
 
-      // Initialize Data SDK
-      let dataSdkInitialized = false;
-      async function initDataSdk() {
-        if (window.dataSdk) {
-          const result = await window.dataSdk.init(dataHandler);
-          if (result.isOk) {
-            dataSdkInitialized = true;
-          } else {
-            console.error("Failed to initialize Data SDK");
-          }
+        // Ensure phone has country code (55 for Brazil)
+        let formattedPhone = cleanPhone;
+        if (cleanPhone.length === 11 && cleanPhone.startsWith("11")) {
+          formattedPhone = "55" + cleanPhone;
+        } else if (cleanPhone.length === 10) {
+          formattedPhone = "5511" + cleanPhone;
+        } else if (!cleanPhone.startsWith("55")) {
+          formattedPhone = "55" + cleanPhone;
+        }
+
+        // Encode message for URL
+        const encodedMessage = encodeURIComponent(message);
+
+        // Create WhatsApp URL
+        const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodedMessage}`;
+
+        // Open WhatsApp in new tab
+        window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      }
+
+      function createBookingMessage(bookingData, isForLawyer = false) {
+        const dateStr = new Date(
+          bookingData.date + "T00:00:00"
+        ).toLocaleDateString("pt-BR", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+
+        if (isForLawyer) {
+          return `🏛️ *NOVO AGENDAMENTO - Marcia Lacava Advocacia*
+
+📋 *Dados do Cliente:*
+👤 Nome: ${bookingData.client_name}
+📧 Email: ${bookingData.client_email}
+📱 Telefone: ${bookingData.client_phone}
+
+📅 *Agendamento:*
+🗓️ Data: ${dateStr}
+🕐 Horário: ${bookingData.time}
+⚖️ Área: ${bookingData.service_type}
+
+💬 *Mensagem do Cliente:*
+${bookingData.message || "Nenhuma mensagem adicional"}
+
+---
+Agendamento realizado através do site em ${new Date().toLocaleString("pt-BR")}`;
+        } else {
+          return `✅ *Agendamento Confirmado - Marcia Lacava Advocacia*
+
+Olá ${bookingData.client_name}! Seu agendamento foi confirmado com sucesso.
+
+📅 *Detalhes da Consulta:*
+🗓️ Data: ${dateStr}
+🕐 Horário: ${bookingData.time}
+⚖️ Área: ${bookingData.service_type}
+
+📍 *Próximos Passos:*
+• Você receberá uma confirmação por email
+• Chegue 10 minutos antes do horário
+• Traga documentos relacionados ao caso
+
+📞 *Contato:*
+Telefone: (11) 98765-4321
+Email: contato@marcialacava.adv.br
+
+Aguardamos você! 🏛️`;
         }
       }
 
@@ -789,25 +838,14 @@
         const timeSlotsContainer = document.getElementById("time-slots");
         timeSlotsContainer.innerHTML = "";
 
-        const dateStr = date.toISOString().split("T")[0];
-
         availableTimeSlots.forEach((time) => {
-          const isBooked = bookings.some(
-            (booking) =>
-              booking.date === dateStr &&
-              booking.time === time &&
-              booking.status === "confirmed"
-          );
-
           const timeSlot = document.createElement("div");
-          timeSlot.className = `time-slot ${isBooked ? "booked" : ""} ${
+          timeSlot.className = `time-slot ${
             selectedTime === time ? "selected" : ""
           }`;
           timeSlot.textContent = time;
 
-          if (!isBooked) {
-            timeSlot.addEventListener("click", () => selectTime(time));
-          }
+          timeSlot.addEventListener("click", () => selectTime(time));
 
           timeSlotsContainer.appendChild(timeSlot);
         });
@@ -878,7 +916,7 @@
       // Form submission
       document
         .getElementById("booking-form")
-        .addEventListener("submit", async function (e) {
+        .addEventListener("submit", function (e) {
           e.preventDefault();
 
           // Validate form fields
@@ -909,10 +947,9 @@
           const submitBtn = document.getElementById("submit-booking");
           const originalText = submitBtn.innerHTML;
           submitBtn.disabled = true;
-          submitBtn.innerHTML = '<span class="spinner"></span> Agendando...';
+          submitBtn.innerHTML = '<span class="spinner"></span> Enviando...';
 
           const bookingData = {
-            id: Date.now().toString(),
             client_name: clientName,
             client_email: clientEmail,
             client_phone: clientPhone,
@@ -920,71 +957,46 @@
             time: selectedTime,
             service_type: serviceType,
             message: document.getElementById("client-message").value.trim(),
-            status: "confirmed",
-            created_at: new Date().toISOString(),
           };
 
-          if (window.dataSdk && dataSdkInitialized) {
-            const result = await window.dataSdk.create(bookingData);
+          // Create messages for WhatsApp
+          const clientMessage = createBookingMessage(bookingData, false);
+          const lawyerMessage = createBookingMessage(bookingData, true);
 
-            if (result.isOk) {
-              showToast(
-                "Agendamento confirmado! Você receberá um email de confirmação em breve.",
-                "success"
-              );
+          // Get lawyer's phone from config or default
+          const lawyerPhone =
+            window.elementSdk?.config?.contact_phone ||
+            defaultConfig.contact_phone;
 
-              // Reset form
-              document.getElementById("booking-form").reset();
-              selectedDate = null;
-              selectedTime = null;
-              document.getElementById("time-slots-container").style.display =
-                "none";
-              document.getElementById("booking-summary").style.display = "none";
-              renderCalendar();
-            } else {
-              showToast(
-                "Erro ao realizar agendamento. Por favor, tente novamente.",
-                "error"
-              );
-            }
-          } else {
-            // If SDK is not initialized yet, wait a bit and try again
-            if (!dataSdkInitialized) {
-              await initDataSdk();
-              if (dataSdkInitialized) {
-                const result = await window.dataSdk.create(bookingData);
-                if (result.isOk) {
-                  showToast(
-                    "Agendamento confirmado! Você receberá um email de confirmação em breve.",
-                    "success"
-                  );
-                  document.getElementById("booking-form").reset();
-                  selectedDate = null;
-                  selectedTime = null;
-                  document.getElementById(
-                    "time-slots-container"
-                  ).style.display = "none";
-                  document.getElementById("booking-summary").style.display =
-                    "none";
-                  renderCalendar();
-                } else {
-                  showToast(
-                    "Erro ao realizar agendamento. Por favor, tente novamente.",
-                    "error"
-                  );
-                }
-              } else {
-                showToast(
-                  "Sistema de agendamento não disponível. Por favor, tente novamente mais tarde.",
-                  "error"
-                );
-              }
-            } else {
-              showToast(
-                "Sistema de agendamento não disponível. Por favor, tente novamente mais tarde.",
-                "error"
-              );
-            }
+          try {
+            // Send message to client
+            setTimeout(() => {
+              sendWhatsAppMessage(bookingData.client_phone, clientMessage);
+            }, 500);
+
+            // Send message to lawyer
+            setTimeout(() => {
+              sendWhatsAppMessage(lawyerPhone, lawyerMessage);
+            }, 1000);
+
+            showToast(
+              "Agendamento enviado! As mensagens do WhatsApp serão abertas automaticamente.",
+              "success"
+            );
+
+            // Reset form
+            document.getElementById("booking-form").reset();
+            selectedDate = null;
+            selectedTime = null;
+            document.getElementById("time-slots-container").style.display =
+              "none";
+            document.getElementById("booking-summary").style.display = "none";
+            renderCalendar();
+          } catch (error) {
+            showToast(
+              "Erro ao enviar mensagens. Por favor, tente novamente.",
+              "error"
+            );
           }
 
           submitBtn.disabled = false;
@@ -996,15 +1008,75 @@
         .getElementById("service-type")
         .addEventListener("change", updateSummary);
 
+      // Phone formatting function
+      function formatPhoneNumber(value) {
+        // Remove all non-numeric characters except parentheses and hyphens
+        const cleaned = value.replace(/[^\d()-]/g, "");
+
+        // Remove existing formatting to start fresh
+        const numbers = cleaned.replace(/[^\d]/g, "");
+
+        // Apply formatting based on length
+        if (numbers.length <= 2) {
+          return `(${numbers}`;
+        } else if (numbers.length <= 7) {
+          return `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;
+        } else if (numbers.length <= 11) {
+          return `(${numbers.slice(0, 2)}) ${numbers.slice(
+            2,
+            7
+          )}-${numbers.slice(7)}`;
+        } else {
+          // Limit to 11 digits
+          return `(${numbers.slice(0, 2)}) ${numbers.slice(
+            2,
+            7
+          )}-${numbers.slice(7, 11)}`;
+        }
+      }
+
+      // Phone input event listener
+      document
+        .getElementById("client-phone")
+        .addEventListener("input", function (e) {
+          const cursorPosition = e.target.selectionStart;
+          const oldValue = e.target.value;
+          const newValue = formatPhoneNumber(oldValue);
+
+          e.target.value = newValue;
+
+          // Maintain cursor position
+          const lengthDiff = newValue.length - oldValue.length;
+          const newCursorPosition = cursorPosition + lengthDiff;
+          e.target.setSelectionRange(newCursorPosition, newCursorPosition);
+
+          validateForm();
+        });
+
+      // Prevent non-allowed characters on keypress
+      document
+        .getElementById("client-phone")
+        .addEventListener("keypress", function (e) {
+          const allowedChars = /[\d()-]/;
+          const char = String.fromCharCode(e.which);
+
+          if (
+            !allowedChars.test(char) &&
+            !e.ctrlKey &&
+            !e.metaKey &&
+            e.which !== 8 &&
+            e.which !== 9
+          ) {
+            e.preventDefault();
+          }
+        });
+
       // Add event listeners to form fields for real-time validation
       document
         .getElementById("client-name")
         .addEventListener("input", validateForm);
       document
         .getElementById("client-email")
-        .addEventListener("input", validateForm);
-      document
-        .getElementById("client-phone")
         .addEventListener("input", validateForm);
       document
         .getElementById("service-type")
@@ -1257,7 +1329,6 @@
         setupMobileNavbar();
         setupScrollAnimations();
         renderCalendar();
-        initDataSdk();
       });
 
       if (window.elementSdk) {
@@ -1457,7 +1528,7 @@
           if (b) {
             var d = b.createElement("script");
             d.innerHTML =
-              "window.__CF$cv$params={r:'99d7c5c3e3381433',t:'MTc2Mjk2ODc4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+              "window.__CF$cv$params={r:'99e061e23427fe12',t:'MTc2MzA1OTA2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
             b.getElementsByTagName("head")[0].appendChild(d);
           }
         }
