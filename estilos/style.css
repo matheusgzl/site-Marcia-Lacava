@@ -726,7 +726,7 @@ body {
 }
 
 .calendar-day:not(.disabled):not(.other-month):hover {
-  background: var(--bg-light);
+  
   border-color: var(--secondary-color);
 }
 
