@@ -32,10 +32,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container-fluid px-3 px-lg-4">
       <a class="navbar-brand d-flex align-items-center gap-2 gap-lg-3" href="#hero" id="site-title">
-        <div class="logo-circle">
-          <img src="imagens/MARCIA LACAVA -ADVOCACIA4.png" alt="Logo Marcia Lacava Advocacia" class="logo-img" />
-        </div>
-        <span class="d-none d-sm-inline">Marcia Lacava Advocacia</span>
+        <img src="imagens/MARCIA LACAVA -ADVOCACIA4.png" alt="Logo Marcia Lacava Advocacia" class="logo-img" />
         <span class="d-inline d-sm-none">Marcia Lacava</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -398,7 +395,6 @@
       </div>
     </section> -->
   <!-- Contact Section -->
-  <!-- Contact Section -->
   <section id="contato" class="contact-section section-padding">
     <div class="container">
       <div class="row">
@@ -417,8 +413,9 @@
                   class="contact-item d-flex align-items-center justify-content-center justify-content-sm-start fade-in-up">
                   <a href="#" id="contact-phone-link"
                     class="contact-link d-flex align-items-center text-decoration-none w-100"> <i
-                      class="contact-icon bi bi-telephone flex-shrink-0"></i> <span id="contact-phone"
-                      class="flex-grow-1">(11) 98765-4321</span> </a> </div>
+                      class="contact-icon bi bi-whatsapp flex-shrink-0"></i> <span id="contact-phone"
+                      class="flex-grow-1">(19) 99181-7883</span> </a>
+                </div>
               </div><!-- Email -->
               <div class="col-12 col-sm-6">
                 <div
@@ -426,20 +423,25 @@
                   <a href="mailto:contato@marcialacava.adv.br" id="contact-email-link"
                     class="contact-link d-flex align-items-center text-decoration-none w-100"> <i
                       class="contact-icon bi bi-envelope flex-shrink-0"></i> <span id="contact-email"
-                      class="flex-grow-1">contato@marcialacava.adv.br</span> </a> </div>
+                      class="flex-grow-1">contato@marcialacava.adv.br</span> </a>
+                </div>
               </div><!-- Address -->
               <div class="col-12 col-sm-6">
                 <div
                   class="contact-item d-flex align-items-center justify-content-center justify-content-sm-start fade-in-up">
                   <i class="contact-icon bi bi-geo-alt flex-shrink-0"></i> <span id="contact-address"
-                    class="flex-grow-1">Atendimento online com hora marcada</span> </div>
+                    class="flex-grow-1">Atendimento online com hora marcada</span>
+                </div>
               </div><!-- Social Media -->
               <div class="col-12 col-sm-6">
                 <div
                   class="contact-item d-flex align-items-center justify-content-center justify-content-sm-start fade-in-up">
                   <i class="contact-icon bi bi-share flex-shrink-0"></i>
-                  <div class="d-flex gap-3 gap-sm-3"><a href="https://www.instagram.com/marcialacava.advocacia?igsh=NnozMmxvZ3NwemZ3" class="social-link" target="_blank"
-                      rel="noopener noreferrer" aria-label="Instagram"> <i class="bi bi-instagram"></i> </a> <a href="https://www.linkedin.com/in/marcia-lacava-8273a2148?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                  <div class="d-flex gap-3 gap-sm-3"><a
+                      href="https://www.instagram.com/marcialacava.advocacia?igsh=NnozMmxvZ3NwemZ3" class="social-link"
+                      target="_blank" rel="noopener noreferrer" aria-label="Instagram"> <i class="bi bi-instagram"></i>
+                    </a> <a
+                      href="https://www.linkedin.com/in/marcia-lacava-8273a2148?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                       class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"> <i
                         class="bi bi-linkedin"></i> </a> </div>
                 </div>
@@ -754,6 +756,31 @@
           // Send WhatsApp message
           sendWhatsAppMessage(phoneNumber, message);
         });
+      }
+
+      // Setup contact phone link     
+      function setupContactPhoneLink() {       
+        const phoneLink = document.getElementById('contact-phone-link');
+        
+        phoneLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          //Get phone number from config or default
+          const phoneNumber = window.elementSdk?.config?.contact_phone || defaultConfig.contact_phone;
+          
+          // Create initial message         
+          const message = 'Olá! Gostaria de saber mais informações sobre os serviços jurídicos.';
+          // Send WhatsApp message
+          sendWhatsAppMessage(phoneNumber, message);       
+        });     
+      }
+
+      // Update phone link icon to WhatsApp
+      function updatePhoneIcon() {
+        const phoneIcon = document.querySelector('#contact-phone-link .contact-icon');
+        if (phoneIcon) {
+          phoneIcon.className = 'contact-icon bi bi-whatsapp flex-shrink-0';
+        }
       }
 
       // Initialize everything
