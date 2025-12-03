@@ -318,6 +318,7 @@ body {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -326,11 +327,9 @@ body {
 
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(
-    135deg,
-    rgba(26, 54, 93, 0.92) 0%,
-    rgba(44, 82, 130, 0.92) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(26, 54, 93, 0.92) 0%,
+      rgba(44, 82, 130, 0.92) 100%);
   color: var(--white);
   padding: 10rem 0;
   position: relative;
@@ -384,7 +383,7 @@ body {
 
 .hero-title {
   font-family: "Montserrat", sans-serif;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
   line-height: 1.2;
@@ -686,11 +685,9 @@ body {
   width: 200px;
   height: 200px;
   border-radius: 15px;
-  background: linear-gradient(
-    135deg,
-    var(--primary-color),
-    var(--accent-color)
-  );
+  background: linear-gradient(135deg,
+      var(--primary-color),
+      var(--accent-color));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -723,6 +720,13 @@ body {
   color: var(--white);
 }
 
+.contact-lawyer-info {
+  font-size: 1.25rem;
+  font-weight: 500;
+  opacity: 0.95;
+  margin-bottom: 0;
+}
+
 .contact-info {
   margin-bottom: 2rem;
 }
@@ -739,6 +743,18 @@ body {
   margin-right: 1rem;
   color: var(--secondary-color);
   min-width: 40px;
+}
+
+.contact-link {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.contact-link:hover {
+  opacity: 0.8;
+  color: white;
+  text-decoration: underline;
 }
 
 /* Social Media Icons */
@@ -773,6 +789,7 @@ body {
 .social-link i {
   color: white;
 }
+
 
 /* Footer */
 .footer {
@@ -864,6 +881,7 @@ body {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -994,9 +1012,11 @@ body {
   0% {
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
   }
+
   50% {
     box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7);
   }
+
   100% {
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
   }
