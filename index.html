@@ -32,19 +32,18 @@
   <!-- Mobile Menu Overlay -->
   <div class="navbar-overlay" id="navbarOverlay"></div><!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-    <div class="container-fluid px-3 px-lg-4">
-      <a class="navbar-brand d-flex align-items-center gap-2 gap-lg-3" href="#hero"
-        id="site-title"> 
-        <img src="imagens/MARCIA LACAVA -ADVOCACIA4.png" alt="Logo Marcia Lacava" class="logo-img"><!-- Logo space - add your image here -->
+    <div class="container-fluid px-3 px-lg-4"><a class="navbar-brand d-flex align-items-center gap-2 gap-lg-3"
+        href="#hero" id="site-title"> <!-- Logo space - add your image here -->
         <div class="logo-container d-flex align-items-center justify-content-center"
-          style="width: 50px; height: 50px; flex-shrink: 0;"><i class="bi bi-scales"
-            style="font-size: 2rem; color: #ffffff;"></i>
-          <!-- Replace the icon above with: <img src="your-logo.png" alt="Logo" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: contain;"> -->
-        </div><span class="d-none d-sm-inline">Marcia Lacava Advocacia</span> 
+          style="width: auto; height: auto; flex-shrink: 0;"><i class="bi bi-scales"
+            style="font-size: 1rem; color: #ffffff;"></i>
+          <img src="imagens/MARCIA LACAVA -ADVOCACIA4.png" alt="Logo" class="logo-img"
+            style="max-width: 100%; max-height: 100%; object-fit: contain;">
+        </div><span class="d-none d-lg-inline">Marcia Lacava Advocacia</span>
       </a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span
           class="navbar-toggler-icon"></span> </button>
-      <div class="navbar-collapse" id="navbarNav">
+      <div class=" navbar-collapse" id="navbarNav">
         <div class="drawer-header d-lg-none">
           <h5 class="drawer-title">Menu</h5>
         </div><button class="drawer-close d-lg-none" id="drawerClose" aria-label="Fechar menu"> <i class="bi bi-x"></i>
@@ -606,71 +605,71 @@
       }
 
       // Auto-close navbar on mobile when clicking links
-        function setupMobileNavbar() {
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-            const navbarOverlay = document.getElementById('navbarOverlay');
-            const drawerClose = document.getElementById('drawerClose');
-            const navbarToggler = document.querySelector('.navbar-toggler');
+      function setupMobileNavbar() {
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        const navbarOverlay = document.getElementById('navbarOverlay');
+        const drawerClose = document.getElementById('drawerClose');
+        const navbarToggler = document.querySelector('.navbar-toggler');
 
-            // Function to close drawer
-            function closeDrawer() {
-                navbarCollapse.classList.remove('show');
-                navbarOverlay.classList.remove('show');
-                document.body.style.overflow = '';
-            }
-
-            // Function to open drawer
-            function openDrawer() {
-                navbarCollapse.classList.add('show');
-                navbarOverlay.classList.add('show');
-                document.body.style.overflow = 'hidden';
-            }
-
-            // Toggle drawer with hamburger button
-            if (navbarToggler) {
-                navbarToggler.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (navbarCollapse.classList.contains('show')) {
-                        closeDrawer();
-                    } else {
-                        openDrawer();
-                    }
-                });
-            }
-
-            // Close drawer when clicking close button
-            if (drawerClose) {
-                drawerClose.addEventListener('click', closeDrawer);
-            }
-
-            // Close drawer when clicking overlay
-            if (navbarOverlay) {
-                navbarOverlay.addEventListener('click', closeDrawer);
-            }
-
-            // Close menu when clicking on links
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navbarCollapse.classList.contains('show')) {
-                        closeDrawer();
-                    }
-                });
-            });
-
-            // Prevent Bootstrap's default collapse behavior on mobile
-            navbarCollapse.addEventListener('show.bs.collapse', (e) => {
-                if (window.innerWidth < 768) {
-                    e.preventDefault();
-                }
-            });
-
-            navbarCollapse.addEventListener('hide.bs.collapse', (e) => {
-                if (window.innerWidth < 768) {
-                    e.preventDefault();
-                }
-            });
+        // Function to close drawer
+        function closeDrawer() {
+          navbarCollapse.classList.remove('show');
+          navbarOverlay.classList.remove('show');
+          document.body.style.overflow = '';
         }
+
+        // Function to open drawer
+        function openDrawer() {
+          navbarCollapse.classList.add('show');
+          navbarOverlay.classList.add('show');
+          document.body.style.overflow = 'hidden';
+        }
+
+        // Toggle drawer with hamburger button
+        if (navbarToggler) {
+          navbarToggler.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (navbarCollapse.classList.contains('show')) {
+              closeDrawer();
+            } else {
+              openDrawer();
+            }
+          });
+        }
+
+        // Close drawer when clicking close button
+        if (drawerClose) {
+          drawerClose.addEventListener('click', closeDrawer);
+        }
+
+        // Close drawer when clicking overlay
+        if (navbarOverlay) {
+          navbarOverlay.addEventListener('click', closeDrawer);
+        }
+
+        // Close menu when clicking on links
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if (navbarCollapse.classList.contains('show')) {
+              closeDrawer();
+            }
+          });
+        });
+
+        // Prevent Bootstrap's default collapse behavior on mobile
+        navbarCollapse.addEventListener('show.bs.collapse', (e) => {
+          if (window.innerWidth < 768) {
+            e.preventDefault();
+          }
+        });
+
+        navbarCollapse.addEventListener('hide.bs.collapse', (e) => {
+          if (window.innerWidth < 768) {
+            e.preventDefault();
+          }
+        });
+      }
 
       async function onConfigChange(config) {
         const baseFontStack = 'sans-serif';
@@ -699,9 +698,10 @@
         const siteTitle = document.getElementById('site-title');
         const titleText = config.site_title || defaultConfig.site_title;
         siteTitle.innerHTML = `
-        <i class="bi bi-scales me-2 me-lg-3" style="font-size: 1.8rem; color: #ffffff;"></i>
-        <span class="d-none d-sm-inline">${titleText}</span>
-        <span class="d-inline d-sm-none">M. Lacava</span>
+        <div class="logo-container d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; flex-shrink: 0;">
+          <i class="bi bi-scales" style="font-size: 1.5rem; color: #ffffff;"></i>
+        </div>
+        <span class="d-none d-lg-inline">${titleText}</span>
       `;
 
         const heroTitle = document.getElementById('hero-title');
@@ -987,7 +987,7 @@
         });
       }
     </script>
-    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9a95dbdc03de8aef',t:'MTc2NDk2MTk4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9afa346497cd27fa',t:'MTc2NjAxNDE4OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>
 
 </html>
