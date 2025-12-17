@@ -29,28 +29,30 @@
     </div>
     <div class="toast-body">Sua mensagem foi enviada com sucesso.</div>
   </div>
-  <!-- Navigation -->
+  <!-- Mobile Menu Overlay -->
+  <div class="navbar-overlay" id="navbarOverlay"></div><!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container-fluid px-3 px-lg-4">
-      <a class="navbar-brand d-flex align-items-center gap-2 gap-lg-3" href="#hero" id="site-title">
-        <img src="imagens/MARCIA LACAVA -ADVOCACIA4.png" alt="Logo Marcia Lacava Advocacia" class="logo-img" />
-        <span class="d-inline d-sm-none">Marcia Lacava</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <a class="navbar-brand d-flex align-items-center gap-2 gap-lg-3" href="#hero"
+        id="site-title"> 
+        <img src="imagens/MARCIA LACAVA -ADVOCACIA4.png" alt="Logo Marcia Lacava" class="logo-img"><!-- Logo space - add your image here -->
+        <div class="logo-container d-flex align-items-center justify-content-center"
+          style="width: 50px; height: 50px; flex-shrink: 0;"><i class="bi bi-scales"
+            style="font-size: 2rem; color: #ffffff;"></i>
+          <!-- Replace the icon above with: <img src="your-logo.png" alt="Logo" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: contain;"> -->
+        </div><span class="d-none d-sm-inline">Marcia Lacava Advocacia</span> 
+      </a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span
+          class="navbar-toggler-icon"></span> </button>
+      <div class="navbar-collapse" id="navbarNav">
+        <div class="drawer-header d-lg-none">
+          <h5 class="drawer-title">Menu</h5>
+        </div><button class="drawer-close d-lg-none" id="drawerClose" aria-label="Fechar menu"> <i class="bi bi-x"></i>
+        </button>
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#sobre">Sobre</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#areas">Áreas de Atuação</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contato">Contato</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Nós</a></li>
+          <li class="nav-item"><a class="nav-link" href="#areas">Áreas de Atuação</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
         </ul>
       </div>
     </div>
@@ -468,455 +470,524 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       const defaultConfig = {
-      background_color: "#1a365d",
-      surface_color: "#ffffff",
-      text_color: "#2c3e50",
-      primary_action_color: "#c9a96e",
-      accent_color: "#2c5282",
-      font_family: "Inter",
-      font_size: 14,
-      site_title: "Marcia Lacava Advocacia",
-      tagline: "Advocacia especializada em soluções jurídicas personalizadas, com foco em planejamento patrimonial e segurança jurídica para pessoas físicas e jurídicas",
-      hero_button: "Agendar Consulta",
-      about_title: "Sobre o Escritório",
-      about_text: "Sou advogada recém-formada, dedicada a oferecer o melhor atendimento aos meus clientes. Meu escritório nasceu do desejo de fazer a diferença através do direito, sempre com ética e transparência. Acredito em um atendimento humanizado, onde cada cliente é único e merece toda atenção.",
-      experience_years: "2023",
-      cases_handled: "50+",
-      services_title: "Áreas de Atuação",
-      service_1_title: "Direito Civil",
-      service_1_desc: "Assessoria em contratos, responsabilidade civil, direitos reais e questões patrimoniais, com foco na prevenção de conflitos e segurança jurídica.",
-      service_2_title: "Direito de Família",
-      service_2_desc: "Orientação em questões familiares, incluindo divórcio, guarda, pensão alimentícia, sucessões e planejamento sucessório.",
-      service_3_title: "Direito Empresarial",
-      service_3_desc: "Consultoria jurídica para empresas, incluindo constituição societária, contratos comerciais e assessoria em questões corporativas.",
-      service_4_title: "Planejamento Patrimonial",
-      service_4_desc: "Estruturação e proteção patrimonial, planejamento sucessório e otimização tributária para pessoas físicas e jurídicas.",
-      portfolio_title: "Nosso Portfólio",
-      portfolio_1_title: "Sucessão",
-      portfolio_1_subtitle: "Inventário e Planejamento Sucessório",
-      portfolio_1_desc: "Realizamos o planejamento sucessório e o inventário extrajudicial ou judicial.",
-      portfolio_2_title: "Regularização Imobiliária",
-      portfolio_2_subtitle: "Imóveis Legalizados",
-      portfolio_2_desc: "Auxiliamos na regularização de imóveis, promovendo segurança e conformidade para pessoas e empresas.",
-      portfolio_3_title: "Contratos Personalizados",
-      portfolio_3_subtitle: "Documentação Segura",
-      portfolio_3_desc: "Elaboramos contratos sob medida, assegurando proteção jurídica e alinhamento aos interesses de nossos clientes.",
-      portfolio_4_title: "Consultoria Preventiva",
-      portfolio_4_subtitle: "Assessoria Jurídica Estratégica",
-      portfolio_4_desc: "Oferecemos consultoria preventiva para evitar litígios e garantir conformidade legal em todas as operações.",
-      contact_title: "Contato",
-      contact_lawyer_info: "Marcia Vieira Lacava - OAB/SP 466.072",
-      contact_phone: "(19) 99181-7883",
-      contact_email: "contato@marcialacava.adv.br",
-      contact_address: "Atendimento online com hora marcada",
-      lawyer_name: "Dra. Marcia Vieira Lacava",
-      lawyer_oab: "OAB/SP 466.072",
-      lawyer_description: "Advogada formada recentemente, apaixonada pelo Direito e determinada a construir uma carreira sólida baseada na ética, no estudo constante e no atendimento de qualidade. Busco sempre me atualizar e oferecer o melhor suporte jurídico aos meus clientes, com dedicação e comprometimento em cada caso."
-    };
+        background_color: "#1a365d",
+        surface_color: "#ffffff",
+        text_color: "#2c3e50",
+        primary_action_color: "#c9a96e",
+        accent_color: "#2c5282",
+        font_family: "Inter",
+        font_size: 14,
+        site_title: "Marcia Lacava Advocacia",
+        tagline: "Advocacia especializada em soluções jurídicas personalizadas, com foco em planejamento patrimonial e segurança jurídica para pessoas físicas e jurídicas",
+        hero_button: "Agendar Consulta",
+        about_title: "Sobre o Escritório",
+        about_text: "Sou advogada recém-formada, dedicada a oferecer o melhor atendimento aos meus clientes. Meu escritório nasceu do desejo de fazer a diferença através do direito, sempre com ética e transparência. Acredito em um atendimento humanizado, onde cada cliente é único e merece toda atenção.",
+        experience_years: "2023",
+        cases_handled: "50+",
+        services_title: "Áreas de Atuação",
+        service_1_title: "Direito Civil",
+        service_1_desc: "Assessoria em contratos, responsabilidade civil, direitos reais e questões patrimoniais, com foco na prevenção de conflitos e segurança jurídica.",
+        service_2_title: "Direito de Família",
+        service_2_desc: "Orientação em questões familiares, incluindo divórcio, guarda, pensão alimentícia, sucessões e planejamento sucessório.",
+        service_3_title: "Direito Empresarial",
+        service_3_desc: "Consultoria jurídica para empresas, incluindo constituição societária, contratos comerciais e assessoria em questões corporativas.",
+        service_4_title: "Planejamento Patrimonial",
+        service_4_desc: "Estruturação e proteção patrimonial, planejamento sucessório e otimização tributária para pessoas físicas e jurídicas.",
+        portfolio_title: "Nosso Portfólio",
+        portfolio_1_title: "Sucessão",
+        portfolio_1_subtitle: "Inventário e Planejamento Sucessório",
+        portfolio_1_desc: "Realizamos o planejamento sucessório e o inventário extrajudicial ou judicial.",
+        portfolio_2_title: "Regularização Imobiliária",
+        portfolio_2_subtitle: "Imóveis Legalizados",
+        portfolio_2_desc: "Auxiliamos na regularização de imóveis, promovendo segurança e conformidade para pessoas e empresas.",
+        portfolio_3_title: "Contratos Personalizados",
+        portfolio_3_subtitle: "Documentação Segura",
+        portfolio_3_desc: "Elaboramos contratos sob medida, assegurando proteção jurídica e alinhamento aos interesses de nossos clientes.",
+        portfolio_4_title: "Consultoria Preventiva",
+        portfolio_4_subtitle: "Assessoria Jurídica Estratégica",
+        portfolio_4_desc: "Oferecemos consultoria preventiva para evitar litígios e garantir conformidade legal em todas as operações.",
+        contact_title: "Contato",
+        contact_lawyer_info: "Marcia Vieira Lacava - OAB/SP 466.072",
+        contact_phone: "(19) 99181-7883",
+        contact_email: "contato@marcialacava.adv.br",
+        contact_address: "Atendimento online com hora marcada",
+        lawyer_name: "Dra. Marcia Vieira Lacava",
+        lawyer_oab: "OAB/SP 466.072",
+        lawyer_description: "Advogada formada recentemente, apaixonada pelo Direito e determinada a construir uma carreira sólida baseada na ética, no estudo constante e no atendimento de qualidade. Busco sempre me atualizar e oferecer o melhor suporte jurídico aos meus clientes, com dedicação e comprometimento em cada caso."
+      };
 
 
 
-    // WhatsApp Integration
-    function sendWhatsAppMessage(phoneNumber, message) {
-      // Remove all non-numeric characters from phone number
-      const cleanPhone = phoneNumber.replace(/\D/g, '');
-      
-      // Ensure phone has country code (55 for Brazil)
-      let formattedPhone = cleanPhone;
-      if (cleanPhone.length === 11 && cleanPhone.startsWith('11')) {
-        formattedPhone = '55' + cleanPhone;
-      } else if (cleanPhone.length === 10) {
-        formattedPhone = '5511' + cleanPhone;
-      } else if (!cleanPhone.startsWith('55')) {
-        formattedPhone = '55' + cleanPhone;
+      // WhatsApp Integration
+      function sendWhatsAppMessage(phoneNumber, message) {
+        // Remove all non-numeric characters from phone number
+        const cleanPhone = phoneNumber.replace(/\D/g, '');
+
+        // Ensure phone has country code (55 for Brazil)
+        let formattedPhone = cleanPhone;
+        if (cleanPhone.length === 11 && cleanPhone.startsWith('11')) {
+          formattedPhone = '55' + cleanPhone;
+        } else if (cleanPhone.length === 10) {
+          formattedPhone = '5511' + cleanPhone;
+        } else if (!cleanPhone.startsWith('55')) {
+          formattedPhone = '55' + cleanPhone;
+        }
+
+        // Encode message for URL
+        const encodedMessage = encodeURIComponent(message);
+
+        // Create WhatsApp URL
+        const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodedMessage}`;
+
+        // Open WhatsApp in new tab
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
       }
-      
-      // Encode message for URL
-      const encodedMessage = encodeURIComponent(message);
-      
-      // Create WhatsApp URL
-      const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodedMessage}`;
-      
-      // Open WhatsApp in new tab
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    }
 
 
 
 
 
-    // Toast notification
-    function showToast(message, type = 'success') {
-      const toast = document.getElementById('toast');
-      const toastIcon = toast.querySelector('.toast-icon');
-      const toastTitle = toast.querySelector('.toast-title');
-      const toastBody = toast.querySelector('.toast-body');
-      
-      toast.className = `toast-notification ${type} show`;
-      
-      if (type === 'success') {
-        toastIcon.className = 'toast-icon bi bi-check-circle-fill';
-        toastTitle.textContent = 'Sucesso!';
-      } else {
-        toastIcon.className = 'toast-icon bi bi-exclamation-circle-fill';
-        toastTitle.textContent = 'Atenção!';
+      // Toast notification
+      function showToast(message, type = 'success') {
+        const toast = document.getElementById('toast');
+        const toastIcon = toast.querySelector('.toast-icon');
+        const toastTitle = toast.querySelector('.toast-title');
+        const toastBody = toast.querySelector('.toast-body');
+
+        toast.className = `toast-notification ${type} show`;
+
+        if (type === 'success') {
+          toastIcon.className = 'toast-icon bi bi-check-circle-fill';
+          toastTitle.textContent = 'Sucesso!';
+        } else {
+          toastIcon.className = 'toast-icon bi bi-exclamation-circle-fill';
+          toastTitle.textContent = 'Atenção!';
+        }
+
+        toastBody.textContent = message;
+
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 5000);
       }
-      
-      toastBody.textContent = message;
-      
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 5000);
-    }
 
-    // Smooth scrolling for navigation links
-    function setupSmoothScrolling() {
-      const links = document.querySelectorAll('a[href^="#"]');
-      links.forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            const navbarHeight = document.querySelector('.navbar').offsetHeight;
-            const targetPosition = target.offsetTop - navbarHeight;
-            window.scrollTo({
-              top: targetPosition,
-              behavior: 'smooth'
+      // Smooth scrolling for navigation links
+      function setupSmoothScrolling() {
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach(link => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              const navbarHeight = document.querySelector('.navbar').offsetHeight;
+              const targetPosition = target.offsetTop - navbarHeight;
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+      }
+
+      // Auto-close navbar on mobile when clicking links
+      function setupMobileNavbar() {
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if (navbarCollapse.classList.contains('show')) {
+              const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse);
+              bsCollapse.hide();
+            }
+          });
+        });
+      }
+
+      // Auto-close navbar on mobile when clicking links
+        function setupMobileNavbar() {
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            const navbarOverlay = document.getElementById('navbarOverlay');
+            const drawerClose = document.getElementById('drawerClose');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+
+            // Function to close drawer
+            function closeDrawer() {
+                navbarCollapse.classList.remove('show');
+                navbarOverlay.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+
+            // Function to open drawer
+            function openDrawer() {
+                navbarCollapse.classList.add('show');
+                navbarOverlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Toggle drawer with hamburger button
+            if (navbarToggler) {
+                navbarToggler.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (navbarCollapse.classList.contains('show')) {
+                        closeDrawer();
+                    } else {
+                        openDrawer();
+                    }
+                });
+            }
+
+            // Close drawer when clicking close button
+            if (drawerClose) {
+                drawerClose.addEventListener('click', closeDrawer);
+            }
+
+            // Close drawer when clicking overlay
+            if (navbarOverlay) {
+                navbarOverlay.addEventListener('click', closeDrawer);
+            }
+
+            // Close menu when clicking on links
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbarCollapse.classList.contains('show')) {
+                        closeDrawer();
+                    }
+                });
             });
-          }
-        });
-      });
-    }
 
-    // Auto-close navbar on mobile when clicking links
-    function setupMobileNavbar() {
-      const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-      const navbarCollapse = document.querySelector('.navbar-collapse');
-      
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          if (navbarCollapse.classList.contains('show')) {
-            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse);
-            bsCollapse.hide();
-          }
-        });
-      });
-    }
+            // Prevent Bootstrap's default collapse behavior on mobile
+            navbarCollapse.addEventListener('show.bs.collapse', (e) => {
+                if (window.innerWidth < 768) {
+                    e.preventDefault();
+                }
+            });
 
-    async function onConfigChange(config) {
-      const baseFontStack = 'sans-serif';
-      const customFont = config.font_family || defaultConfig.font_family;
-      const baseSize = config.font_size || defaultConfig.font_size;
-      
-      const backgroundColor = config.background_color || defaultConfig.background_color;
-      const surfaceColor = config.surface_color || defaultConfig.surface_color;
-      const textColor = config.text_color || defaultConfig.text_color;
-      const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
-      const accentColor = config.accent_color || defaultConfig.accent_color;
+            navbarCollapse.addEventListener('hide.bs.collapse', (e) => {
+                if (window.innerWidth < 768) {
+                    e.preventDefault();
+                }
+            });
+        }
 
-      // Update CSS custom properties
-      document.documentElement.style.setProperty('--primary-color', backgroundColor);
-      document.documentElement.style.setProperty('--secondary-color', primaryActionColor);
-      document.documentElement.style.setProperty('--accent-color', accentColor);
-      document.documentElement.style.setProperty('--text-dark', textColor);
-      document.documentElement.style.setProperty('--white', surfaceColor);
+      async function onConfigChange(config) {
+        const baseFontStack = 'sans-serif';
+        const customFont = config.font_family || defaultConfig.font_family;
+        const baseSize = config.font_size || defaultConfig.font_size;
 
-      // Apply font and base styles
-      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
-      document.body.style.color = textColor;
-      document.body.style.fontSize = `${baseSize}px`;
+        const backgroundColor = config.background_color || defaultConfig.background_color;
+        const surfaceColor = config.surface_color || defaultConfig.surface_color;
+        const textColor = config.text_color || defaultConfig.text_color;
+        const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+        const accentColor = config.accent_color || defaultConfig.accent_color;
 
-      // Update text content and font sizes
-      const siteTitle = document.getElementById('site-title');
-      const titleText = config.site_title || defaultConfig.site_title;
-      siteTitle.innerHTML = `
+        // Update CSS custom properties
+        document.documentElement.style.setProperty('--primary-color', backgroundColor);
+        document.documentElement.style.setProperty('--secondary-color', primaryActionColor);
+        document.documentElement.style.setProperty('--accent-color', accentColor);
+        document.documentElement.style.setProperty('--text-dark', textColor);
+        document.documentElement.style.setProperty('--white', surfaceColor);
+
+        // Apply font and base styles
+        document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+        document.body.style.color = textColor;
+        document.body.style.fontSize = `${baseSize}px`;
+
+        // Update text content and font sizes
+        const siteTitle = document.getElementById('site-title');
+        const titleText = config.site_title || defaultConfig.site_title;
+        siteTitle.innerHTML = `
         <i class="bi bi-scales me-2 me-lg-3" style="font-size: 1.8rem; color: #ffffff;"></i>
         <span class="d-none d-sm-inline">${titleText}</span>
         <span class="d-inline d-sm-none">M. Lacava</span>
       `;
-      
-      const heroTitle = document.getElementById('hero-title');
-      heroTitle.textContent = titleText;
-      heroTitle.style.fontSize = `${baseSize * 3.5}px`;
-      
-      const tagline = document.getElementById('tagline');
-      tagline.textContent = config.tagline || defaultConfig.tagline;
-      tagline.style.fontSize = `${baseSize * 1.25}px`;
-      
-      document.getElementById('hero-button').textContent = config.hero_button || defaultConfig.hero_button;
-      
-      const aboutTitle = document.getElementById('about-title');
-      aboutTitle.textContent = config.about_title || defaultConfig.about_title;
-      aboutTitle.style.fontSize = `${baseSize * 2.5}px`;
-      
-      const aboutText = document.getElementById('about-text');
-      aboutText.textContent = config.about_text || defaultConfig.about_text;
-      aboutText.style.fontSize = `${baseSize * 1.125}px`;
-      
-      document.getElementById('experience-years').textContent = config.experience_years || defaultConfig.experience_years;
-      document.getElementById('cases-handled').textContent = config.cases_handled || defaultConfig.cases_handled;
-      
-      const servicesTitle = document.getElementById('services-title');
-      servicesTitle.textContent = config.services_title || defaultConfig.services_title;
-      servicesTitle.style.fontSize = `${baseSize * 2.5}px`;
-      
-      document.getElementById('service-1-title').textContent = config.service_1_title || defaultConfig.service_1_title;
-      document.getElementById('service-1-desc').textContent = config.service_1_desc || defaultConfig.service_1_desc;
-      document.getElementById('service-2-title').textContent = config.service_2_title || defaultConfig.service_2_title;
-      document.getElementById('service-2-desc').textContent = config.service_2_desc || defaultConfig.service_2_desc;
-      document.getElementById('service-3-title').textContent = config.service_3_title || defaultConfig.service_3_title;
-      document.getElementById('service-3-desc').textContent = config.service_3_desc || defaultConfig.service_3_desc;
-      document.getElementById('service-4-title').textContent = config.service_4_title || defaultConfig.service_4_title;
-      document.getElementById('service-4-desc').textContent = config.service_4_desc || defaultConfig.service_4_desc;
-      
-      const portfolioTitle = document.getElementById('portfolio-title');
-      portfolioTitle.textContent = config.portfolio_title || defaultConfig.portfolio_title;
-      portfolioTitle.style.fontSize = `${baseSize * 2.5}px`;
-      
-      document.getElementById('portfolio-1-title').textContent = config.portfolio_1_title || defaultConfig.portfolio_1_title;
-      document.getElementById('portfolio-1-subtitle').textContent = config.portfolio_1_subtitle || defaultConfig.portfolio_1_subtitle;
-      document.getElementById('portfolio-1-desc').textContent = config.portfolio_1_desc || defaultConfig.portfolio_1_desc;
-      document.getElementById('portfolio-2-title').textContent = config.portfolio_2_title || defaultConfig.portfolio_2_title;
-      document.getElementById('portfolio-2-subtitle').textContent = config.portfolio_2_subtitle || defaultConfig.portfolio_2_subtitle;
-      document.getElementById('portfolio-2-desc').textContent = config.portfolio_2_desc || defaultConfig.portfolio_2_desc;
-      document.getElementById('portfolio-3-title').textContent = config.portfolio_3_title || defaultConfig.portfolio_3_title;
-      document.getElementById('portfolio-3-subtitle').textContent = config.portfolio_3_subtitle || defaultConfig.portfolio_3_subtitle;
-      document.getElementById('portfolio-3-desc').textContent = config.portfolio_3_desc || defaultConfig.portfolio_3_desc;
-      document.getElementById('portfolio-4-title').textContent = config.portfolio_4_title || defaultConfig.portfolio_4_title;
-      document.getElementById('portfolio-4-subtitle').textContent = config.portfolio_4_subtitle || defaultConfig.portfolio_4_subtitle;
-      document.getElementById('portfolio-4-desc').textContent = config.portfolio_4_desc || defaultConfig.portfolio_4_desc;
-      
-      const contactTitle = document.getElementById('contact-title');
-      contactTitle.textContent = config.contact_title || defaultConfig.contact_title;
-      contactTitle.style.fontSize = `${baseSize * 2.5}px`;
-      
-      const contactLawyerInfo = document.getElementById('contact-lawyer-info');
-      contactLawyerInfo.textContent = config.contact_lawyer_info || defaultConfig.contact_lawyer_info;
-      contactLawyerInfo.style.fontSize = `${baseSize * 1.25}px`;
-      
-      document.getElementById('contact-phone').textContent = config.contact_phone || defaultConfig.contact_phone;
-      document.getElementById('contact-email').textContent = config.contact_email || defaultConfig.contact_email;
-      document.getElementById('contact-address').textContent = config.contact_address || defaultConfig.contact_address;
-      
-      // Update email link
-      const emailLink = document.getElementById('contact-email-link');
-      emailLink.href = `mailto:${config.contact_email || defaultConfig.contact_email}`;
-      
-      document.getElementById('lawyer-name').textContent = config.lawyer_name || defaultConfig.lawyer_name;
-      document.getElementById('lawyer-oab').textContent = config.lawyer_oab || defaultConfig.lawyer_oab;
-      document.getElementById('lawyer-description').textContent = config.lawyer_description || defaultConfig.lawyer_description;
 
-      // Apply responsive font sizes
-      const serviceTitles = document.querySelectorAll('.service-title');
-      serviceTitles.forEach(title => {
-        title.style.fontSize = `${baseSize * 1.375}px`;
-      });
+        const heroTitle = document.getElementById('hero-title');
+        heroTitle.textContent = titleText;
+        heroTitle.style.fontSize = `${baseSize * 3.5}px`;
 
-      const contactItems = document.querySelectorAll('.contact-item');
-      contactItems.forEach(item => {
-        item.style.fontSize = `${baseSize * 1.125}px`;
-      });
-    }
+        const tagline = document.getElementById('tagline');
+        tagline.textContent = config.tagline || defaultConfig.tagline;
+        tagline.style.fontSize = `${baseSize * 1.25}px`;
 
-    // Scroll Animation Observer
-    function setupScrollAnimations() {
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
+        document.getElementById('hero-button').textContent = config.hero_button || defaultConfig.hero_button;
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-          }
+        const aboutTitle = document.getElementById('about-title');
+        aboutTitle.textContent = config.about_title || defaultConfig.about_title;
+        aboutTitle.style.fontSize = `${baseSize * 2.5}px`;
+
+        const aboutText = document.getElementById('about-text');
+        aboutText.textContent = config.about_text || defaultConfig.about_text;
+        aboutText.style.fontSize = `${baseSize * 1.125}px`;
+
+        document.getElementById('experience-years').textContent = config.experience_years || defaultConfig.experience_years;
+        document.getElementById('cases-handled').textContent = config.cases_handled || defaultConfig.cases_handled;
+
+        const servicesTitle = document.getElementById('services-title');
+        servicesTitle.textContent = config.services_title || defaultConfig.services_title;
+        servicesTitle.style.fontSize = `${baseSize * 2.5}px`;
+
+        document.getElementById('service-1-title').textContent = config.service_1_title || defaultConfig.service_1_title;
+        document.getElementById('service-1-desc').textContent = config.service_1_desc || defaultConfig.service_1_desc;
+        document.getElementById('service-2-title').textContent = config.service_2_title || defaultConfig.service_2_title;
+        document.getElementById('service-2-desc').textContent = config.service_2_desc || defaultConfig.service_2_desc;
+        document.getElementById('service-3-title').textContent = config.service_3_title || defaultConfig.service_3_title;
+        document.getElementById('service-3-desc').textContent = config.service_3_desc || defaultConfig.service_3_desc;
+        document.getElementById('service-4-title').textContent = config.service_4_title || defaultConfig.service_4_title;
+        document.getElementById('service-4-desc').textContent = config.service_4_desc || defaultConfig.service_4_desc;
+
+        const portfolioTitle = document.getElementById('portfolio-title');
+        portfolioTitle.textContent = config.portfolio_title || defaultConfig.portfolio_title;
+        portfolioTitle.style.fontSize = `${baseSize * 2.5}px`;
+
+        document.getElementById('portfolio-1-title').textContent = config.portfolio_1_title || defaultConfig.portfolio_1_title;
+        document.getElementById('portfolio-1-subtitle').textContent = config.portfolio_1_subtitle || defaultConfig.portfolio_1_subtitle;
+        document.getElementById('portfolio-1-desc').textContent = config.portfolio_1_desc || defaultConfig.portfolio_1_desc;
+        document.getElementById('portfolio-2-title').textContent = config.portfolio_2_title || defaultConfig.portfolio_2_title;
+        document.getElementById('portfolio-2-subtitle').textContent = config.portfolio_2_subtitle || defaultConfig.portfolio_2_subtitle;
+        document.getElementById('portfolio-2-desc').textContent = config.portfolio_2_desc || defaultConfig.portfolio_2_desc;
+        document.getElementById('portfolio-3-title').textContent = config.portfolio_3_title || defaultConfig.portfolio_3_title;
+        document.getElementById('portfolio-3-subtitle').textContent = config.portfolio_3_subtitle || defaultConfig.portfolio_3_subtitle;
+        document.getElementById('portfolio-3-desc').textContent = config.portfolio_3_desc || defaultConfig.portfolio_3_desc;
+        document.getElementById('portfolio-4-title').textContent = config.portfolio_4_title || defaultConfig.portfolio_4_title;
+        document.getElementById('portfolio-4-subtitle').textContent = config.portfolio_4_subtitle || defaultConfig.portfolio_4_subtitle;
+        document.getElementById('portfolio-4-desc').textContent = config.portfolio_4_desc || defaultConfig.portfolio_4_desc;
+
+        const contactTitle = document.getElementById('contact-title');
+        contactTitle.textContent = config.contact_title || defaultConfig.contact_title;
+        contactTitle.style.fontSize = `${baseSize * 2.5}px`;
+
+        const contactLawyerInfo = document.getElementById('contact-lawyer-info');
+        contactLawyerInfo.textContent = config.contact_lawyer_info || defaultConfig.contact_lawyer_info;
+        contactLawyerInfo.style.fontSize = `${baseSize * 1.25}px`;
+
+        document.getElementById('contact-phone').textContent = config.contact_phone || defaultConfig.contact_phone;
+        document.getElementById('contact-email').textContent = config.contact_email || defaultConfig.contact_email;
+        document.getElementById('contact-address').textContent = config.contact_address || defaultConfig.contact_address;
+
+        // Update email link
+        const emailLink = document.getElementById('contact-email-link');
+        emailLink.href = `mailto:${config.contact_email || defaultConfig.contact_email}`;
+
+        document.getElementById('lawyer-name').textContent = config.lawyer_name || defaultConfig.lawyer_name;
+        document.getElementById('lawyer-oab').textContent = config.lawyer_oab || defaultConfig.lawyer_oab;
+        document.getElementById('lawyer-description').textContent = config.lawyer_description || defaultConfig.lawyer_description;
+
+        // Apply responsive font sizes
+        const serviceTitles = document.querySelectorAll('.service-title');
+        serviceTitles.forEach(title => {
+          title.style.fontSize = `${baseSize * 1.375}px`;
         });
-      }, observerOptions);
 
-      const animatedElements = document.querySelectorAll('.fade-in-up');
-      animatedElements.forEach(el => observer.observe(el));
-    }
-
-    // Setup WhatsApp floating button
-    function setupWhatsAppButton() {
-      const whatsappBtn = document.getElementById('whatsapp-float-btn');
-      
-      whatsappBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Get phone number from config or default
-        const phoneNumber = window.elementSdk?.config?.contact_phone || defaultConfig.contact_phone;
-        
-        // Create initial message
-        const message = 'Olá! Gostaria de saber mais informações sobre os serviços jurídicos.';
-        
-        // Send WhatsApp message
-        sendWhatsAppMessage(phoneNumber, message);
-      });
-    }
-
-    // Setup hero contact button
-    function setupHeroContactButton() {
-      const heroContactBtn = document.getElementById('hero-contact-btn');
-      
-      heroContactBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Get phone number from config or default
-        const phoneNumber = window.elementSdk?.config?.contact_phone || defaultConfig.contact_phone;
-        
-        // Create initial message
-        const message = 'Olá! Gostaria de saber mais informações sobre os serviços jurídicos.';
-        
-        // Send WhatsApp message
-        sendWhatsAppMessage(phoneNumber, message);
-      });
-    }
-
-    // Setup contact phone link
-    function setupContactPhoneLink() {
-      const phoneLink = document.getElementById('contact-phone-link');
-      
-      phoneLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Get phone number from config or default
-        const phoneNumber = window.elementSdk?.config?.contact_phone || defaultConfig.contact_phone;
-        
-        // Create initial message
-        const message = 'Olá! Gostaria de saber mais informações sobre os serviços jurídicos.';
-        
-        // Send WhatsApp message
-        sendWhatsAppMessage(phoneNumber, message);
-      });
-    }
-
-    // Update phone link icon to WhatsApp
-    function updatePhoneIcon() {
-      const phoneIcon = document.querySelector('#contact-phone-link .contact-icon');
-      if (phoneIcon) {
-        phoneIcon.className = 'contact-icon bi bi-whatsapp flex-shrink-0';
+        const contactItems = document.querySelectorAll('.contact-item');
+        contactItems.forEach(item => {
+          item.style.fontSize = `${baseSize * 1.125}px`;
+        });
       }
-    }
 
-    // Update email link when config changes
-    function updateEmailLink() {
-      const emailLink = document.getElementById('contact-email-link');
-      const email = window.elementSdk?.config?.contact_email || defaultConfig.contact_email;
-      emailLink.href = `mailto:${email}`;
-    }
+      // Scroll Animation Observer
+      function setupScrollAnimations() {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
 
-    // Initialize everything
-    document.addEventListener('DOMContentLoaded', function() {
-      setupSmoothScrolling();
-      setupMobileNavbar();
-      setupScrollAnimations();
-      setupWhatsAppButton();
-      setupHeroContactButton();
-      setupContactPhoneLink();
-      updateEmailLink();
-      updatePhoneIcon();
-    });
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+            }
+          });
+        }, observerOptions);
 
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange,
-        mapToCapabilities: (config) => ({
-          recolorables: [
-            {
-              get: () => config.background_color || defaultConfig.background_color,
-              set: (value) => {
-                config.background_color = value;
-                window.elementSdk.setConfig({ background_color: value });
-              }
-            },
-            {
-              get: () => config.surface_color || defaultConfig.surface_color,
-              set: (value) => {
-                config.surface_color = value;
-                window.elementSdk.setConfig({ surface_color: value });
-              }
-            },
-            {
-              get: () => config.text_color || defaultConfig.text_color,
-              set: (value) => {
-                config.text_color = value;
-                window.elementSdk.setConfig({ text_color: value });
-              }
-            },
-            {
-              get: () => config.primary_action_color || defaultConfig.primary_action_color,
-              set: (value) => {
-                config.primary_action_color = value;
-                window.elementSdk.setConfig({ primary_action_color: value });
-              }
-            },
-            {
-              get: () => config.accent_color || defaultConfig.accent_color,
-              set: (value) => {
-                config.accent_color = value;
-                window.elementSdk.setConfig({ accent_color: value });
-              }
-            }
-          ],
-          borderables: [],
-          fontEditable: {
-            get: () => config.font_family || defaultConfig.font_family,
-            set: (value) => {
-              config.font_family = value;
-              window.elementSdk.setConfig({ font_family: value });
-            }
-          },
-          fontSizeable: {
-            get: () => config.font_size || defaultConfig.font_size,
-            set: (value) => {
-              config.font_size = value;
-              window.elementSdk.setConfig({ font_size: value });
-            }
-          }
-        }),
-        mapToEditPanelValues: (config) => new Map([
-          ["site_title", config.site_title || defaultConfig.site_title],
-          ["tagline", config.tagline || defaultConfig.tagline],
-          ["hero_button", config.hero_button || defaultConfig.hero_button],
-          ["about_title", config.about_title || defaultConfig.about_title],
-          ["about_text", config.about_text || defaultConfig.about_text],
-          ["experience_years", config.experience_years || defaultConfig.experience_years],
-          ["cases_handled", config.cases_handled || defaultConfig.cases_handled],
-          ["services_title", config.services_title || defaultConfig.services_title],
-          ["service_1_title", config.service_1_title || defaultConfig.service_1_title],
-          ["service_1_desc", config.service_1_desc || defaultConfig.service_1_desc],
-          ["service_2_title", config.service_2_title || defaultConfig.service_2_title],
-          ["service_2_desc", config.service_2_desc || defaultConfig.service_2_desc],
-          ["service_3_title", config.service_3_title || defaultConfig.service_3_title],
-          ["service_3_desc", config.service_3_desc || defaultConfig.service_3_desc],
-          ["service_4_title", config.service_4_title || defaultConfig.service_4_title],
-          ["service_4_desc", config.service_4_desc || defaultConfig.service_4_desc],
-          ["portfolio_title", config.portfolio_title || defaultConfig.portfolio_title],
-          ["portfolio_1_title", config.portfolio_1_title || defaultConfig.portfolio_1_title],
-          ["portfolio_1_subtitle", config.portfolio_1_subtitle || defaultConfig.portfolio_1_subtitle],
-          ["portfolio_1_desc", config.portfolio_1_desc || defaultConfig.portfolio_1_desc],
-          ["portfolio_2_title", config.portfolio_2_title || defaultConfig.portfolio_2_title],
-          ["portfolio_2_subtitle", config.portfolio_2_subtitle || defaultConfig.portfolio_2_subtitle],
-          ["portfolio_2_desc", config.portfolio_2_desc || defaultConfig.portfolio_2_desc],
-          ["portfolio_3_title", config.portfolio_3_title || defaultConfig.portfolio_3_title],
-          ["portfolio_3_subtitle", config.portfolio_3_subtitle || defaultConfig.portfolio_3_subtitle],
-          ["portfolio_3_desc", config.portfolio_3_desc || defaultConfig.portfolio_3_desc],
-          ["portfolio_4_title", config.portfolio_4_title || defaultConfig.portfolio_4_title],
-          ["portfolio_4_subtitle", config.portfolio_4_subtitle || defaultConfig.portfolio_4_subtitle],
-          ["portfolio_4_desc", config.portfolio_4_desc || defaultConfig.portfolio_4_desc],
-          ["contact_title", config.contact_title || defaultConfig.contact_title],
-          ["contact_lawyer_info", config.contact_lawyer_info || defaultConfig.contact_lawyer_info],
-          ["contact_phone", config.contact_phone || defaultConfig.contact_phone],
-          ["contact_email", config.contact_email || defaultConfig.contact_email],
-          ["contact_address", config.contact_address || defaultConfig.contact_address],
-          ["lawyer_name", config.lawyer_name || defaultConfig.lawyer_name],
-          ["lawyer_oab", config.lawyer_oab || defaultConfig.lawyer_oab],
-          ["lawyer_description", config.lawyer_description || defaultConfig.lawyer_description]
-        ])
+        const animatedElements = document.querySelectorAll('.fade-in-up');
+        animatedElements.forEach(el => observer.observe(el));
+      }
+
+      // Setup WhatsApp floating button
+      function setupWhatsAppButton() {
+        const whatsappBtn = document.getElementById('whatsapp-float-btn');
+
+        whatsappBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          // Get phone number from config or default
+          const phoneNumber = window.elementSdk?.config?.contact_phone || defaultConfig.contact_phone;
+
+          // Create initial message
+          const message = 'Olá! Gostaria de saber mais informações sobre os serviços jurídicos.';
+
+          // Send WhatsApp message
+          sendWhatsAppMessage(phoneNumber, message);
+        });
+      }
+
+      // Setup hero contact button
+      function setupHeroContactButton() {
+        const heroContactBtn = document.getElementById('hero-contact-btn');
+
+        heroContactBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          // Get phone number from config or default
+          const phoneNumber = window.elementSdk?.config?.contact_phone || defaultConfig.contact_phone;
+
+          // Create initial message
+          const message = 'Olá! Gostaria de saber mais informações sobre os serviços jurídicos.';
+
+          // Send WhatsApp message
+          sendWhatsAppMessage(phoneNumber, message);
+        });
+      }
+
+      // Setup contact phone link
+      function setupContactPhoneLink() {
+        const phoneLink = document.getElementById('contact-phone-link');
+
+        phoneLink.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          // Get phone number from config or default
+          const phoneNumber = window.elementSdk?.config?.contact_phone || defaultConfig.contact_phone;
+
+          // Create initial message
+          const message = 'Olá! Gostaria de saber mais informações sobre os serviços jurídicos.';
+
+          // Send WhatsApp message
+          sendWhatsAppMessage(phoneNumber, message);
+        });
+      }
+
+      // Update phone link icon to WhatsApp
+      function updatePhoneIcon() {
+        const phoneIcon = document.querySelector('#contact-phone-link .contact-icon');
+        if (phoneIcon) {
+          phoneIcon.className = 'contact-icon bi bi-whatsapp flex-shrink-0';
+        }
+      }
+
+      // Update email link when config changes
+      function updateEmailLink() {
+        const emailLink = document.getElementById('contact-email-link');
+        const email = window.elementSdk?.config?.contact_email || defaultConfig.contact_email;
+        emailLink.href = `mailto:${email}`;
+      }
+
+      // Initialize everything
+      document.addEventListener('DOMContentLoaded', function () {
+        setupSmoothScrolling();
+        setupMobileNavbar();
+        setupScrollAnimations();
+        setupWhatsAppButton();
+        setupHeroContactButton();
+        setupContactPhoneLink();
+        updateEmailLink();
+        updatePhoneIcon();
       });
-    }
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a95dbdc03de8aef',t:'MTc2NDk2MTk4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities: (config) => ({
+            recolorables: [
+              {
+                get: () => config.background_color || defaultConfig.background_color,
+                set: (value) => {
+                  config.background_color = value;
+                  window.elementSdk.setConfig({ background_color: value });
+                }
+              },
+              {
+                get: () => config.surface_color || defaultConfig.surface_color,
+                set: (value) => {
+                  config.surface_color = value;
+                  window.elementSdk.setConfig({ surface_color: value });
+                }
+              },
+              {
+                get: () => config.text_color || defaultConfig.text_color,
+                set: (value) => {
+                  config.text_color = value;
+                  window.elementSdk.setConfig({ text_color: value });
+                }
+              },
+              {
+                get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                set: (value) => {
+                  config.primary_action_color = value;
+                  window.elementSdk.setConfig({ primary_action_color: value });
+                }
+              },
+              {
+                get: () => config.accent_color || defaultConfig.accent_color,
+                set: (value) => {
+                  config.accent_color = value;
+                  window.elementSdk.setConfig({ accent_color: value });
+                }
+              }
+            ],
+            borderables: [],
+            fontEditable: {
+              get: () => config.font_family || defaultConfig.font_family,
+              set: (value) => {
+                config.font_family = value;
+                window.elementSdk.setConfig({ font_family: value });
+              }
+            },
+            fontSizeable: {
+              get: () => config.font_size || defaultConfig.font_size,
+              set: (value) => {
+                config.font_size = value;
+                window.elementSdk.setConfig({ font_size: value });
+              }
+            }
+          }),
+          mapToEditPanelValues: (config) => new Map([
+            ["site_title", config.site_title || defaultConfig.site_title],
+            ["tagline", config.tagline || defaultConfig.tagline],
+            ["hero_button", config.hero_button || defaultConfig.hero_button],
+            ["about_title", config.about_title || defaultConfig.about_title],
+            ["about_text", config.about_text || defaultConfig.about_text],
+            ["experience_years", config.experience_years || defaultConfig.experience_years],
+            ["cases_handled", config.cases_handled || defaultConfig.cases_handled],
+            ["services_title", config.services_title || defaultConfig.services_title],
+            ["service_1_title", config.service_1_title || defaultConfig.service_1_title],
+            ["service_1_desc", config.service_1_desc || defaultConfig.service_1_desc],
+            ["service_2_title", config.service_2_title || defaultConfig.service_2_title],
+            ["service_2_desc", config.service_2_desc || defaultConfig.service_2_desc],
+            ["service_3_title", config.service_3_title || defaultConfig.service_3_title],
+            ["service_3_desc", config.service_3_desc || defaultConfig.service_3_desc],
+            ["service_4_title", config.service_4_title || defaultConfig.service_4_title],
+            ["service_4_desc", config.service_4_desc || defaultConfig.service_4_desc],
+            ["portfolio_title", config.portfolio_title || defaultConfig.portfolio_title],
+            ["portfolio_1_title", config.portfolio_1_title || defaultConfig.portfolio_1_title],
+            ["portfolio_1_subtitle", config.portfolio_1_subtitle || defaultConfig.portfolio_1_subtitle],
+            ["portfolio_1_desc", config.portfolio_1_desc || defaultConfig.portfolio_1_desc],
+            ["portfolio_2_title", config.portfolio_2_title || defaultConfig.portfolio_2_title],
+            ["portfolio_2_subtitle", config.portfolio_2_subtitle || defaultConfig.portfolio_2_subtitle],
+            ["portfolio_2_desc", config.portfolio_2_desc || defaultConfig.portfolio_2_desc],
+            ["portfolio_3_title", config.portfolio_3_title || defaultConfig.portfolio_3_title],
+            ["portfolio_3_subtitle", config.portfolio_3_subtitle || defaultConfig.portfolio_3_subtitle],
+            ["portfolio_3_desc", config.portfolio_3_desc || defaultConfig.portfolio_3_desc],
+            ["portfolio_4_title", config.portfolio_4_title || defaultConfig.portfolio_4_title],
+            ["portfolio_4_subtitle", config.portfolio_4_subtitle || defaultConfig.portfolio_4_subtitle],
+            ["portfolio_4_desc", config.portfolio_4_desc || defaultConfig.portfolio_4_desc],
+            ["contact_title", config.contact_title || defaultConfig.contact_title],
+            ["contact_lawyer_info", config.contact_lawyer_info || defaultConfig.contact_lawyer_info],
+            ["contact_phone", config.contact_phone || defaultConfig.contact_phone],
+            ["contact_email", config.contact_email || defaultConfig.contact_email],
+            ["contact_address", config.contact_address || defaultConfig.contact_address],
+            ["lawyer_name", config.lawyer_name || defaultConfig.lawyer_name],
+            ["lawyer_oab", config.lawyer_oab || defaultConfig.lawyer_oab],
+            ["lawyer_description", config.lawyer_description || defaultConfig.lawyer_description]
+          ])
+        });
+      }
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9a95dbdc03de8aef',t:'MTc2NDk2MTk4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
 </html>
