@@ -509,12 +509,12 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .about-image {
   width: 100%;
-  max-width: 400px;
+  max-width: 250px;
   height: auto;
   border-radius: 15px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
