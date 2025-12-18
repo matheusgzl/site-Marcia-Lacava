@@ -37,9 +37,10 @@ body {
 }
 
 /* Custom Navbar */
+
 .navbar-custom {
   background: var(--primary-color) !important;
-  padding: 0.75rem 0;
+  padding: 0rem 0;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
@@ -221,8 +222,12 @@ body {
 
 /* Mobile Navbar Styles */
 @media (max-width: 767.98px) {
+  nav {
+    height: 14vh;
+  }
+
   .navbar-custom {
-    padding: 0.5rem 0;
+    padding: 0rem 0;
   }
 
   .navbar-brand {
@@ -423,7 +428,7 @@ body {
 
 @media (max-width: 575.98px) {
   .hero-section::before {
-    background-position: 50% 50%;
+    background-position: 40% center;
     background-size: cover;
     opacity: 0.35;
   }
@@ -517,96 +522,13 @@ body {
   transform: none;
 }
 
-/* About Section */
-.about-section {
-  background: var(--bg-light);
-}
-
-.about-text {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--text-light);
-}
-
-.stat-card {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-  border-left: 4px solid var(--secondary-color);
-  height: 100%;
-}
-
-.stat-card:hover {
-  transform: translateY(-5px);
-}
-
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-}
-
-.stat-label {
-  color: var(--text-light);
-  font-weight: 500;
-}
-
-/* About Image Styles */
-.about-image-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-}
-
-.about-image {
-  width: 100%;
-  max-width: 250px;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.about-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
-}
-
-@media (max-width: 991.98px) {
-  .about-image-container {
-    margin-top: 2rem;
-    padding: 2rem 1rem;
-  }
-
-  .about-image {
-    max-width: 350px;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .about-image-container {
-    padding: 1.5rem 0.5rem;
-  }
-
-  .about-image {
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .about-image {
-    max-width: 320px;
-  }
-}
-
 /* Services Section */
+.service-card {
+  background: var(--white);
+  padding: 2.5rem 2rem;
+  line-height: 1.6;
+}
+
 .service-card {
   background: var(--white);
   padding: 2.5rem 2rem;
@@ -658,52 +580,6 @@ body {
   line-height: 1.6;
 }
 
-/* Portfolio Section */
-.portfolio-card {
-  background: var(--white);
-  padding: 2.5rem 2rem;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  border-left: 4px solid var(--secondary-color);
-  position: relative;
-  overflow: hidden;
-}
-
-.portfolio-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 4px;
-  transform: scaleY(0);
-  transition: transform 0.3s ease;
-}
-
-.portfolio-card:hover::before {
-  transform: scaleY(1);
-}
-
-.portfolio-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.portfolio-icon {
-  font-size: 3rem;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-}
-
-.portfolio-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-}
-
 .portfolio-subtitle {
   font-size: 1.125rem;
   font-weight: 600;
@@ -711,62 +587,66 @@ body {
   margin-bottom: 1rem;
 }
 
-.portfolio-description {
-  color: var(--text-light);
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
-/* Team Section */
-.team-section {
+/* About Section */
+.about-section {
   background: var(--bg-light);
 }
 
-.team-card {
-  background: var(--white);
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
+.about-text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-light);
 }
 
-.team-card:hover {
-  transform: translateY(-5px);
-}
-
-.team-photo {
-  width: 200px;
-  height: 200px;
-  border-radius: 15px;
-  background: linear-gradient(
-    135deg,
-    var(--primary-color),
-    var(--accent-color)
-  );
+/* About Image Styles */
+.about-image-container {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
-  font-size: 4rem;
-  margin: 0 auto 2rem;
+  padding: 0.5rem;
 }
 
-.team-name {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
+.about-image {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.team-oab {
-  color: var(--secondary-color);
-  font-weight: 600;
-  margin-bottom: 1rem;
+.about-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
-.team-description {
-  color: var(--text-light);
-  line-height: 1.6;
+@media (max-width: 991.98px) {
+  .about-image-container {
+    margin-top: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  .about-image {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .about-image-container {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .about-image {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .about-image {
+    max-width: 320px;
+  }
 }
 
 /* Contact Section */
@@ -849,25 +729,13 @@ body {
 .footer {
   background: #0f1419;
   color: var(--white);
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   text-align: center;
 }
 
 .footer p {
   margin: 0;
   opacity: 0.9;
-}
-
-/* Scroll Animations */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.fade-in-up.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* Staggered animations for cards */
@@ -919,6 +787,18 @@ body {
   transition-delay: 0.2s;
 }
 
+/* Scroll Animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-up.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Loading Spinner */
 .spinner {
   border: 3px solid var(--bg-light);
@@ -963,27 +843,22 @@ body {
     padding: 3rem 0;
   }
 
-  .team-photo {
-    width: 150px;
-    height: 150px;
-    font-size: 3rem;
+  .contact-lawyer-info {
+    font-size: 0.95rem;
   }
 
-  .booking-card {
-    padding: 1.5rem;
+  .contact-item {
+    font-size: 0.85rem;
   }
 
-  .calendar-container {
-    padding: 1rem;
-    margin-bottom: 2rem;
+  .contact-icon {
+    font-size: 1.25rem;
+    margin-right: 0.75rem;
+    min-width: 32px;
   }
 
-  .time-slots {
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-  }
-
-  .booking-section .col-lg-6 {
-    margin-bottom: 2rem;
+  footer p {
+    font-size: 0.95rem;
   }
 
   .toast-notification {
@@ -1007,18 +882,30 @@ body {
     font-size: 1.75rem;
   }
 
-  .service-card,
-  .stat-card {
+  .service-card{
     padding: 2rem 1.5rem;
   }
 
-  .calendar-weekday {
-    font-size: 0.75rem;
-    padding: 0.25rem;
+  .contact-lawyer-info {
+    font-size: 0.875rem;
   }
 
-  .calendar-day {
-    font-size: 0.875rem;
+  .contact-item {
+    font-size: 0.8rem;
+  }
+
+  .contact-icon {
+    font-size: 1.15rem;
+    margin-right: 0.65rem;
+    min-width: 28px;
+  }
+
+  .portfolio-subtitle {
+    font-size: 1rem;
+  }
+  
+  footer p {
+    font-size: 0.6rem;
   }
 
   /* Further reduce animation distance on small mobile */
