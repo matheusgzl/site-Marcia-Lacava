@@ -37,11 +37,16 @@ body {
 }
 
 /* Custom Navbar */
-
 .navbar-custom {
   background: var(--primary-color) !important;
-  padding: 0rem 0;
+  padding: 0.75rem 0;
+  -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
@@ -55,13 +60,34 @@ body {
 
 .navbar-brand:hover {
   color: var(--white) !important;
+  -webkit-transform: scale(1.02);
+  -moz-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  -o-transform: scale(1.02);
   transform: scale(1.02);
+}
+
+.logo-img {
+  margin: 10px;
+  width: auto;
+  height: 70px;
+}
+
+.navbar-brand {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .navbar-toggler {
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   padding: 0.375rem 0.5rem;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
@@ -71,6 +97,8 @@ body {
 }
 
 .navbar-toggler:focus {
+  -webkit-box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+  -moz-box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
   box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
 }
 
@@ -83,6 +111,10 @@ body {
 .navbar-nav .nav-link {
   color: #ffffff !important;
   font-weight: 500;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   text-decoration: none;
   position: relative;
@@ -98,12 +130,6 @@ body {
 
 .navbar-nav .nav-item {
   display: block !important;
-}
-
-.logo-img {
-  margin: 10px;
-  width: auto;
-  height: 70px;
 }
 
 /* Desktop and Tablet Navbar Styles */
@@ -164,6 +190,10 @@ body {
 
   .navbar-nav .nav-link:hover {
     background: rgba(255, 255, 255, 0.1);
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
+    -o-transform: translateY(-2px);
     transform: translateY(-2px);
     color: #ffffff !important;
   }
@@ -176,7 +206,15 @@ body {
     width: 0;
     height: 2px;
     background: var(--secondary-color);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
     transform: translateX(-50%);
   }
 
@@ -202,14 +240,18 @@ body {
 .navbar-overlay {
   position: fixed;
   top: 0;
-  left: 240px;
+  left: 0;
   width: calc(100% - 240px);
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   z-index: 1040;
   opacity: 0;
   visibility: hidden;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   pointer-events: none;
 }
@@ -222,12 +264,8 @@ body {
 
 /* Mobile Navbar Styles */
 @media (max-width: 767.98px) {
-  nav {
-    height: 14vh;
-  }
-
   .navbar-custom {
-    padding: 0rem 0;
+    padding: 0.5rem 0;
   }
 
   .navbar-brand {
@@ -237,15 +275,20 @@ body {
   .navbar-collapse {
     position: fixed !important;
     top: 0 !important;
-    left: -240px !important;
+    right: -240px !important;
     width: 240px !important;
     height: 100vh !important;
     background-color: #1a365d !important;
     background-image: none !important;
     padding: 1.5rem 1rem !important;
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3) !important;
+    -webkit-box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3) !important;
+    -moz-box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3) !important;
     z-index: 1050 !important;
-    transition: left 0.3s ease !important;
+    -webkit-transition: right 0.3s ease !important;
+    -moz-transition: right 0.3s ease !important;
+    -o-transition: right 0.3s ease !important;
+    transition: right 0.3s ease !important;
     overflow-y: auto !important;
     display: block !important;
     opacity: 1 !important;
@@ -257,7 +300,7 @@ body {
   }
 
   .navbar-collapse.show {
-    left: 0 !important;
+    right: 0 !important;
     background-color: #1a365d !important;
   }
 
@@ -280,7 +323,7 @@ body {
 
   .navbar-nav .nav-link {
     font-size: 1rem;
-    padding: 1rem !important;
+    padding: 0.875rem 1rem !important;
     border-radius: 8px;
     margin: 0.25rem 0;
     color: #ffffff !important;
@@ -296,41 +339,49 @@ body {
 
   .navbar-nav .nav-link:hover,
   .navbar-nav .nav-link:active {
-    background-color: rgba(255, 255, 255, 0.15) !important;
+    background-color: #2b548d85 !important;
     color: #ffffff !important;
   }
 
   /* Close button for drawer */
   .drawer-close {
     position: absolute;
-    top: 0.8rem;
+    top: 1.6rem;
     right: 1rem;
-    background-color: rgba(255, 255, 255, 0.144) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
     border: none;
     color: white;
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.25rem;
     cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
     z-index: 1051;
   }
 
   .drawer-close:hover {
-    background: rgba(255, 255, 255, 0.918) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    -webkit-transform: rotate(90deg) !important;
+    -moz-transform: rotate(90deg) !important;
+    -ms-transform: rotate(90deg) !important;
+    -o-transform: rotate(90deg) !important;
     transform: rotate(90deg) !important;
   }
 
   /* Drawer header */
   .drawer-header {
     position: absolute;
-    top: 1.25rem;
-    left: 1rem;
-    right: 3.5rem;
+    top: 2rem;
+    left: 2.5rem;
+    right: 1rem;
     background-color: transparent !important;
   }
 
@@ -366,6 +417,10 @@ body {
 
 /* Smooth collapse animation */
 .navbar-collapse {
+  -webkit-transition: height 0.35s ease;
+  -moz-transition: height 0.35s ease;
+  -ms-transition: height 0.35s ease;
+  -o-transition: height 0.35s ease;
   transition: height 0.35s ease;
 }
 
@@ -882,7 +937,7 @@ body {
     font-size: 1.75rem;
   }
 
-  .service-card{
+  .service-card {
     padding: 2rem 1.5rem;
   }
 
@@ -903,7 +958,7 @@ body {
   .portfolio-subtitle {
     font-size: 1rem;
   }
-  
+
   footer p {
     font-size: 0.6rem;
   }
